@@ -3,8 +3,8 @@
 The data of this database is generated using: https://www.mockaroo.com/
 Some Queries have been written to test out the database.
 
-##1. ERD
+## 1. ERD
 ![ERD](https://github.com/cdoge25/VSTAY/blob/main/ER-RELATION-ERD.drawio.png)
 
-##2. Relational Diagram
+## 2. Relational Diagram
 ![Relational Diagram](https://github.com/cdoge25/VSTAY/blob/main/ER-RELATION-Relation.drawio.png)
