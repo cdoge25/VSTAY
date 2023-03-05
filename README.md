@@ -4,7 +4,7 @@ The data of this database is generated using: https://www.mockaroo.com/
 Some Queries have been written to test out the database.
 
 ##1. ERD
-![alt text](https://github.com/cdoge25/VSTAY/blob/ER-RELATION-ERD.drawio.png?raw=true)
+![ERD](https://github.com/cdoge25/VSTAY/blob/main/ER-RELATION-ERD.drawio.png)
 
 ##2. Relational Diagram
-![alt text](https://github.com/cdoge25/VSTAY/blob/ER-RELATION-Relation.drawio.png?raw=true)
+![Relational Diagram](https://github.com/cdoge25/VSTAY/blob/main/ER-RELATION-Relation.drawio.png)
