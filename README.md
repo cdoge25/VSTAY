@@ -1,6 +1,7 @@
 # VSTAY - Online Booking App - Database Project
 
 The data of this database is generated using: https://www.mockaroo.com/
+\n
 Some Queries have been written to test out the database.
 
 ## 1. ERD
