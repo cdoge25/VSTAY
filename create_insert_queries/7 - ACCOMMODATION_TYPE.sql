@@ -1,0 +1,10 @@
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('VL', 'Villa');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('HS', 'Homestay');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('CD', 'Condotel');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('BG', 'Bungalow');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('PH', 'Penthouse');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('TH', 'Treehouse');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('ST', 'Studio');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('DP', 'Duplex');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('RS', 'Resort');
+insert into ACCOMMODATION_TYPE (AccommodationTypeID, AccommodationType) values ('FS', 'Farmstay');

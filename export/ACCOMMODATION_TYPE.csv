@@ -1,0 +1,11 @@
+AccommodationTypeID,AccommodationType
+BG,Bungalow
+CD,Condotel
+DP,Duplex
+FS,Farmstay
+HS,Homestay
+PH,Penthouse
+RS,Resort
+ST,Studio
+TH,Treehouse
+VL,Villa
