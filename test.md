@@ -68,13 +68,19 @@ Implement a price tracking system:
    - Show how much each accommodation's rating deviates from its type's average
    - Sort by average rating in descending order
 
-3. Which province has the most accommodations?
+3. Which province has the most accommodationm s?
    - List the number of accommodations for each accommodation type as well as the total number of accommodations in each province
    - Show the province name, accommodation type names as column names (Homestay, Hotel, etc.), and the total number of accommodations
    - Sort by the total number of accommodations in descending order
 
-4. Write a stored procedure to find accommodations within the input price range
-   - The procedure should take the lower and upper bounds of the price range as input
-   - The procedure should return the accommodation ID, name, price per night, and type
-   - Sort by the price per night in ascending order
-   - Execute the procedure with the price range of 300000 to 400000
+4. Write a stored procedure for an advanced accommodation search system:
+   - Create a stored procedure `search_accommodations` that takes these parameters:
+     * Required capacity (number of guests)
+     * Required amenities (optional, comma-separated amenity IDs)
+     * Required facilities (optional, comma-separated facility IDs)
+   - The procedure should return:
+     * Accommodation details (AccommodationID, AccommodationName, AccommodationType, PricePerNight, Capacity, NumberOfRooms)
+   - Execute the procedure with:
+     * Required capacity: 18
+     * Required facilities: 'F10' (Facilities for disabled guests)
+     * Required amenities: 'A12' (Pets allowed in room)
