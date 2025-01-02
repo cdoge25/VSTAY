@@ -113,12 +113,6 @@ CREATE TABLE [VOUCHER_COUPON] (
   PRIMARY KEY ([VCCode])
 );
 
-CREATE TABLE [PAYMENT_TYPE] (
-  [PaymentTypeID] varchar (2) not null,
-  [PaymentType] varchar (50) not null,
-  PRIMARY KEY ([PaymentTypeID])
-);
-
 CREATE TABLE [BOOKING] (
   [BookingID] varchar (12) not null,
   [GuestIDCardNumber] varchar (12) not null,
@@ -143,15 +137,12 @@ CREATE TABLE [BOOKING] (
 CREATE TABLE [PAYMENT] (
   [TransactionID] varchar (14) not null,
   [BookingID] varchar (12) not null,
-  [PaymentTypeID] varchar (2) not null,
+  [PaymentType] varchar (12) not null,
   [BankAccountNumber] varchar (20) not null,
   PRIMARY KEY ([TransactionID]),
   CONSTRAINT [FK_BOOKING.BookingID]
     FOREIGN KEY ([BookingID])
-      REFERENCES [BOOKING]([BookingID]),
-  CONSTRAINT [FK_PAYMENT_TYPE.PaymentTypeID]
-    FOREIGN KEY ([PaymentTypeID])
-      REFERENCES [PAYMENT_TYPE]([PaymentTypeID])
+      REFERENCES [BOOKING]([BookingID])
 );
 
 CREATE TABLE [FEEDBACK] (

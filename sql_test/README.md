@@ -36,7 +36,7 @@ Requirements:
 ## Question 3: Data Integration (10%)
 
 Use SQL queries to bulk insert the corresponding CSV files into the created tables.
-If you need to make any modifications to the tables, include those queries in this section.
+If you need to make any modifications to the tables, include those queries in this section, after the bulk insert queries.
 
 Requirements:
 - Insert queries should be in the correct order to maintain referential integrity.

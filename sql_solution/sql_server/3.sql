@@ -118,16 +118,6 @@ WITH (
     ROWTERMINATOR = '\n'
 );
 
--- Bulk insert data into PAYMENT_TYPE table
-BULK INSERT PAYMENT_TYPE
-FROM '/data/payment_type.csv'
-WITH (
-    FORMAT = 'CSV',
-    FIRSTROW = 2,
-    FIELDTERMINATOR = ',',
-    ROWTERMINATOR = '\n'
-);
-
 -- Bulk insert data into PAYMENT table
 BULK INSERT PAYMENT
 FROM '/data/payment.csv'
