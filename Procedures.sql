@@ -41,7 +41,7 @@ WHERE B.CheckInTime Between  @lower and @upper
 --10. Procedure to increase or decrease the price of a accommodation with the input amount
 CREATE PROCEDURE price_change
 @accommodationid varchar(12),
-@change int
+@change DECIMAL(10,2)
 AS
 BEGIN
 IF EXISTS

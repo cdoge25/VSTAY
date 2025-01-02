@@ -43,16 +43,16 @@ CREATE TABLE [AMENITIES] (
 );
 
 CREATE TABLE [PROVINCE] (
-  [ProvinceID] varchar (6) not null,
+  [ProvinceID] int not null,
   [ProvinceName] nvarchar (30) not null,
   PRIMARY KEY ([ProvinceID])
 );
 
 CREATE TABLE [CITY_DISTRICT] (
-  [City/DistrictID] varchar (6) not null,
-  [City/DistrictName] nvarchar (30) not null,
-  [ProvinceID] varchar (6) not null,
-  PRIMARY KEY ([City/DistrictID]),
+  [CityDistrictID] int not null,
+  [CityDistrictName] nvarchar (30) not null,
+  [ProvinceID] int not null,
+  PRIMARY KEY ([CityDistrictID]),
   CONSTRAINT [FK_CITYDISTRICT.ProvinceID]
     FOREIGN KEY ([ProvinceID])
       REFERENCES [PROVINCE]([ProvinceID])
@@ -62,16 +62,16 @@ CREATE TABLE [ACCOMMODATION] (
   [AccommodationID] varchar (12) not null,
   [AccommodationName] varchar (255) null,
   [OwnerIDCardNumber] varchar (12) not null,
-  [City/DistrictID] varchar (6) not null,
+  [CityDistrictID] int not null,
   [StreetAddress] nvarchar (255) not null,
   [AccommodationTypeID] char (2) not null,
   [NumberOfRooms] int not null,
   [Capacity] int not null,
   [PricePerNight] numeric (10,0) not null,
   PRIMARY KEY ([AccommodationID]),
-  CONSTRAINT [FK_ACCOMMODATION.City/DistrictID]
-    FOREIGN KEY ([City/DistrictID])
-      REFERENCES [CITY_DISTRICT]([City/DistrictID]),
+  CONSTRAINT [FK_ACCOMMODATION.CityDistrictID]
+    FOREIGN KEY ([CityDistrictID])
+      REFERENCES [CITY_DISTRICT]([CityDistrictID]),
   CONSTRAINT [FK_ACCOMMODATION.OwnerIDCardNumber]
     FOREIGN KEY ([OwnerIDCardNumber])
       REFERENCES [OWNER_ACCOUNT]([OwnerIDCardNumber]),
@@ -113,12 +113,6 @@ CREATE TABLE [VOUCHER_COUPON] (
   PRIMARY KEY ([VCCode])
 );
 
-CREATE TABLE [BOOKING_STATUS] (
-  [BookingStatusID] varchar (2) not null,
-  [StatusName] varchar (50) not null,
-  PRIMARY KEY ([BookingStatusID])
-);
-
 CREATE TABLE [PAYMENT_TYPE] (
   [PaymentTypeID] varchar (2) not null,
   [PaymentType] varchar (50) not null,
@@ -129,10 +123,10 @@ CREATE TABLE [BOOKING] (
   [BookingID] varchar (12) not null,
   [GuestIDCardNumber] varchar (12) not null,
   [AccommodationID] varchar (12) not null,
-  [CheckInTime] datetime not null,
-  [CheckOutTime] datetime not null,
+  [ReservedCheckInTime] datetime not null,
+  [CheckInTime] datetime null,
+  [CheckOutTime] datetime null,
   [VCCode] varchar (12) null,
-  [BookingStatusID] varchar (2) not null,
   [DateTimeCancel] datetime null,
   PRIMARY KEY ([BookingID]),
   CONSTRAINT [FK_BOOKING.GuestIDCardNumber]
@@ -144,9 +138,6 @@ CREATE TABLE [BOOKING] (
   CONSTRAINT [FK_BOOKING.VCCode]
     FOREIGN KEY ([VCCode])
       REFERENCES [VOUCHER_COUPON]([VCCode]),
-  CONSTRAINT [FK_BOOKING.BookingStatusID]
-    FOREIGN KEY ([BookingStatusID])
-      REFERENCES [BOOKING_STATUS]([BookingStatusID])
 );
 
 CREATE TABLE [PAYMENT] (
@@ -166,8 +157,8 @@ CREATE TABLE [PAYMENT] (
 CREATE TABLE [FEEDBACK] (
   [GuestIDCardNumber] varchar (12) not null,
   [AccommodationID] varchar (12) not null,
-  [Rating] int not null,
-  [Comment] nvarchar (100) null,
+  [Rating] varchar (5) not null,
+  [Comment] varchar (255) null,
   PRIMARY KEY ([GuestIDCardNumber], [AccommodationID]),
   CONSTRAINT [FK_FEEDBACK.AccommodationID]
     FOREIGN KEY ([AccommodationID])
