@@ -1,4 +1,4 @@
-﻿AccommodationID,AccommodationName,OwnerIDCardNumber,City/DistrictID,StreetAddress,AccommodationTypeID,NumberOfRooms,Capacity,PricePerNight
+AccommodationID,AccommodationName,OwnerIDCardNumber,CityDistrictID,StreetAddress,AccommodationTypeID,NumberOfRooms,Capacity,PricePerNight
 ACM000000001,,844337223887,172,798 Debs Alley,FS,4,19,4380479.0
 ACM000000002,"On Assignment, Inc.",428690549976,675,1627 Fisk Park,FS,2,10,3583433.0
 ACM000000003,First Majestic Silver Corp.,180126128092,49,7163 Arrowood Center,PH,1,9,1236240.0
