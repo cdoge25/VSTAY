@@ -1,10 +1,10 @@
--- 5.5
-{# Create a guest loyalty analysis that shows:
-- Number of bookings per guest
-- Average length of stay per guest
-- Total amount spent per guest
-- Sort by total amount spent in descending order
-- Only include guests with at least 3 bookings #}
+-- 5.5. Analyze guest loyalty:
+-- - Create a guest loyalty analysis that shows:
+-- - Number of bookings per guest
+-- - Average length of stay per guest
+-- - Total amount spent per guest
+-- - Sort by total amount spent in descending order
+-- - Only include guests with at least 3 bookings #}
 
 SELECT 
     g.GuestIDCardNumber,

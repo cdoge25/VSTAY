@@ -1,4 +1,4 @@
--- 5.6 Show for each owner:
+-- 5.6. Analyze owner popularity:
 -- - Number of properties owned
 -- - Number of unique guests
 -- - Occupancy rate (days booked / total available days)
