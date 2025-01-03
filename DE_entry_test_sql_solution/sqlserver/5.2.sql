@@ -39,4 +39,4 @@ SELECT
 FROM RatingStats rs
 JOIN TypeAverages ta ON rs.AccommodationTypeID = ta.AccommodationTypeID
 WHERE rs.AvgRating > 4
-ORDER BY rs.AvgRating DESC;
+ORDER BY rs.AvgRating DESC, DifferenceFromTypeAverage DESC, rs.AccommodationID ASC;

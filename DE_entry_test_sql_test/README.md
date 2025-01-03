@@ -81,7 +81,7 @@ Implement a price tracking system:
    - Include the number of reviews for each accommodation
    - Calculate and show the average rating of the corresponding accommodation type
    - Show how much each accommodation's rating deviates from its type's average
-   - Sort by average rating in descending order
+   - Sort by average rating in descending order, difference from type average in descending order, accommodation ID in ascending order
 
 3. Which province has the most accommodations?
    - List the number of accommodations for each accommodation type as well as the total number of accommodations in each province

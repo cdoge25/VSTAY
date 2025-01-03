@@ -31,11 +31,11 @@ SELECT
     rs."AccommodationID",
     rs."AccommodationName",
     rs."AccommodationType",
-    ROUND(rs.AvgRating, 2) as "AverageRating",
+    ROUND(CAST(rs.AvgRating AS NUMERIC), 2) as "AverageRating",
     rs.ReviewCount,
-    ROUND(ta.TypeAvgRating, 2) as "TypeAverageRating",
-    ROUND(rs.AvgRating - ta.TypeAvgRating, 2) as "DifferenceFromTypeAverage"
+    ROUND(CAST(ta.TypeAvgRating AS NUMERIC), 2) as "TypeAverageRating",
+    ROUND(CAST((rs.AvgRating - ta.TypeAvgRating) AS NUMERIC), 2) as "DifferenceFromTypeAverage"
 FROM RatingStats rs
 JOIN TypeAverages ta ON rs."AccommodationTypeID" = ta."AccommodationTypeID"
 WHERE rs.AvgRating > 4
-ORDER BY rs.AvgRating DESC; 
+ORDER BY rs.AvgRating DESC, "DifferenceFromTypeAverage" DESC, rs."AccommodationID" ASC;

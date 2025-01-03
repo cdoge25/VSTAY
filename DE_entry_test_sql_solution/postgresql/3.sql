@@ -1,83 +1,83 @@
 -- Load data into tables using PostgreSQL COPY command
-COPY "PROVINCE" FROM '/data/province.csv' WITH (
+COPY "PROVINCE" FROM '/data/utf8/PROVINCE.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "CITY_DISTRICT" FROM '/data/city_district.csv' WITH (
+COPY "CITY_DISTRICT" FROM '/data/utf8/CITY_DISTRICT.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "ACCOMMODATION_TYPE" FROM '/data/accommodation_type.csv' WITH (
+COPY "ACCOMMODATION_TYPE" FROM '/data/utf8/ACCOMMODATION_TYPE.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "AMENITIES" FROM '/data/amenities.csv' WITH (
+COPY "AMENITIES" FROM '/data/utf8/AMENITIES.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "FACILITIES" FROM '/data/facilities.csv' WITH (
+COPY "FACILITIES" FROM '/data/utf8/FACILITIES.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "ACCOMMODATION" FROM '/data/accommodation.csv' WITH (
+COPY "GUEST_ACCOUNT" FROM '/data/utf8/GUEST_ACCOUNT.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "AMENITIES_INCLUDED" FROM '/data/amenities_included.csv' WITH (
+COPY "OWNER_ACCOUNT" FROM '/data/utf8/OWNER_ACCOUNT.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "FACILITIES_INCLUDED" FROM '/data/facilities_included.csv' WITH (
+COPY "ACCOMMODATION" FROM '/data/utf8/ACCOMMODATION.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "VOUCHER_COUPON" FROM '/data/voucher_coupon.csv' WITH (
+COPY "AMENITIES_INCLUDED" FROM '/data/utf8/AMENITIES_INCLUDED.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "BOOKING" FROM '/data/booking.csv' WITH (
+COPY "FACILITIES_INCLUDED" FROM '/data/utf8/FACILITIES_INCLUDED.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "GUEST_ACCOUNT" FROM '/data/guest_account.csv' WITH (
+COPY "VOUCHER_COUPON" FROM '/data/utf8/VOUCHER_COUPON.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "OWNER_ACCOUNT" FROM '/data/owner_account.csv' WITH (
+COPY "BOOKING" FROM '/data/utf8/BOOKING.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "PAYMENT" FROM '/data/payment.csv' WITH (
+COPY "PAYMENT" FROM '/data/utf8/PAYMENT.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
 );
 
-COPY "FEEDBACK" FROM '/data/feedback.csv' WITH (
+COPY "FEEDBACK" FROM '/data/utf8/FEEDBACK.csv' WITH (
     FORMAT csv,
     HEADER true,
     DELIMITER ','
@@ -96,7 +96,7 @@ END;
 ALTER TABLE "FEEDBACK" 
 ALTER COLUMN "Rating" TYPE INTEGER USING "Rating"::integer;
 
--- Remove carriage returns from all text fields
+-- For removing carriage returns:
 DO $$
 DECLARE
     r record;
@@ -104,6 +104,8 @@ BEGIN
     FOR r IN SELECT table_name, column_name 
              FROM information_schema.columns 
              WHERE data_type IN ('character varying', 'text')
+             AND table_schema = 'public'  -- Only target user tables in public schema
+             AND table_name NOT LIKE 'pg_%'  -- Exclude postgres system tables
     LOOP
         EXECUTE format('
             UPDATE %I 
@@ -111,4 +113,4 @@ BEGIN
             WHERE %I ~ E''[\n\r]''', 
             r.table_name, r.column_name, r.column_name, r.column_name);
     END LOOP;
-END $$; 
+END $$;

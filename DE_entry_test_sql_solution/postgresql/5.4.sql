@@ -44,8 +44,7 @@ $$;
 
 -- Example executions:
 CALL search_accommodations(18, 'F10,F02', 'A12');
--- View results:
--- SELECT * FROM search_results;
+SELECT * FROM search_results
 
 
 -- Advanced solution with facility and amenity details
@@ -106,5 +105,4 @@ END;
 $$;
 
 CALL search_accommodations_adv(18, 'F10,F02', 'A12');
--- View results:
--- SELECT * FROM search_results_adv; 
+SELECT * FROM search_results_adv
